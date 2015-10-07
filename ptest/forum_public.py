@@ -73,10 +73,10 @@ class Spider_Model:
         title = 'xxxx'
         #邮件正文
         content = 'xxxx'
-        #附件路径
+        #附件在本地的绝对路径
         address = u'xxx'
         #关键词 例子
-        key_word = u'猿题库 服务器'
+        key_word = u'猿题库'
         words = key_word.split(" ")
         
         count = 1
