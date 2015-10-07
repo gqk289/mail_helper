@@ -81,7 +81,7 @@ class Spider_Model:
         
         count = 1
         for items in nowPage:
-            if page <= 3:
+            if page <= 5:
                 attr = items[0].split('ParttimeJob/')
                 article_id = string.atoi(attr[1])
                 article_title = items[1]
@@ -103,7 +103,7 @@ class Spider_Model:
                             self.cursor.execute("SELECT * FROM forum_data WHERE id = %d" %article_id)
                             result = self.cursor.fetchone()
                             if result is None:
-                                mailtest(from_addr, to_addr, article_title, content, address, smtp_server, password) 
+                                mailtest(from_addr, to_addr, title, content, address, smtp_server, password) 
                                 print u'第%d个' %count,article_title 
                                 count = count+1
                                 self.cursor.execute("insert or ignore into forum_data (id ,title, attr, email) values (?, ?, ?, ?)",(article_id, article_title, article_attr, page_email))
