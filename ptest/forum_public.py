@@ -62,22 +62,9 @@ class Spider_Model:
         self.cursor = self.conn.cursor()
         self.cursor.execute('create table if not exists forum_data (id INTEGER primary key, title varchar(20), attr varchar(20),email varchar(20))')
 
-        # 输入Email地址和口令:
-##        from_addr = raw_input('From: ')
-##        password = raw_input('Password: ')
-##        # 输入SMTP服务器地址:
-##        smtp_server = raw_input('SMTP server: ')
-##        # 输入收件人地址:
-##        to_addr = raw_input('To: ')
-##
-##        title = raw_input(u'邮件标题: ')
-##        content = raw_input(u'邮件正文: ')
-##        address = raw_input(u'附件地址: ')
-##        key_word = raw_input(u'关键词(以空格分隔): ')
-##        key_word = key_word.decode('utf-8')
+        #下面部分需要您自己填入!!!!!
         #发送方邮箱地址
         from_addr = 'xxx'
-##        to_addr = 'xxx'
         #发送方邮箱密码
         password = 'xxx'
         #发送方邮箱smtp
@@ -121,7 +108,6 @@ class Spider_Model:
                                 count = count+1
                                 self.cursor.execute("insert or ignore into forum_data (id ,title, attr, email) values (?, ?, ?, ?)",(article_id, article_title, article_attr, page_email))
                                 self.conn.commit()
-##                print u'第%d页' %page,article_id, article_title, article_attr
             else:
                 self.cursor.close()
                 self.conn.close()
