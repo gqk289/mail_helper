@@ -104,7 +104,7 @@ class Spider_Model:
                             result = self.cursor.fetchone()
                             if result is None:
                                 mailtest(from_addr, to_addr, title, content, address, smtp_server, password) 
-                                print u'第%d个' %count,article_title 
+                                print article_title 
                                 count = count+1
                                 self.cursor.execute("insert or ignore into forum_data (id ,title, attr, email) values (?, ?, ?, ?)",(article_id, article_title, article_attr, page_email))
                                 self.conn.commit()
@@ -118,7 +118,7 @@ class Spider_Model:
         self.enable = True
         page = self.page
 
-        print u'正在加载请稍后'
+        print u'目前已投递简历如下：'
         
         thread.start_new_thread(self.LoadPage,())
 
